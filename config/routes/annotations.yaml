@@ -1,0 +1,9 @@
+platform_controllers:
+    resource: ../../platform/Controller/
+    type: annotation
+
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+
+
