@@ -1,22 +1,23 @@
 <?php
-
 namespace App\Repository;
 
-use App\Entity\Product;
+use App\Entity\AppProduct;
+use Jm\Bundle\MarketplaceBundle\Repository\ProductRepository as BaseProductRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Platform\Repository\BaseProductRepository;
 
 class ProductRepository extends BaseProductRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Product::class);
+        parent::__construct($registry, AppProduct::class);
     }
 
-    public function findBySomething($value)
+    public function createProduct()
     {
-        return 'India';
+        $class = $this->getEntityName();
+        $product = new $class;
+        dump($product);
+        return $product;
     }
-
 }

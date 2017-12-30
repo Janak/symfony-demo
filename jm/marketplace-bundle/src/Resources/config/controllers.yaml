@@ -1,0 +1,14 @@
+services:
+    Jm\Bundle\MarketplaceBundle\Service\MessageGenerator:
+        public: false
+        autowire: false
+
+    Jm\Bundle\MarketplaceBundle\Controller\HomepageController:
+        arguments: { $messageGenerator: '@jm.message_generator', $productRepository: '@jm.product.repo' }
+        public: true
+
+    Jm\Bundle\MarketplaceBundle\Repository\ProductRepository:
+        autowire: true
+
+    jm.message_generator: '@Jm\Bundle\MarketplaceBundle\Service\MessageGenerator'
+    jm.product.repo: '@Jm\Bundle\MarketplaceBundle\Repository\ProductRepository'

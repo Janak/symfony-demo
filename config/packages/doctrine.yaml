@@ -19,15 +19,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            Platform:
-                is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/platform/Entity'
-                prefix: 'Platform\Entity'
-                alias: Platform
             App:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+            MarketplaceBundle:
+                is_bundle: true
+                type: annotation
+                prefix: 'Jm\Bundle\MarketplaceBundle\Entity'
+                alias: MarketplaceBundle

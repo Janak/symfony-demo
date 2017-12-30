@@ -1,0 +1,36 @@
+{
+  "name": "jm/marketplace-bundle",
+  "type": "symfony-bundle",
+  "description": "Marketplace bundle for symfony apps",
+  "keywords": ["marketplace"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Janak Jadeja",
+      "email": "janak@aspl.in"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Jm\\Bundle\\MarketplaceBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AppTestBundle\\": "tests/Fixtures/AppTestBundle/",
+      "Jm\\Bundle\\MarketplaceBundle\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.16.x-dev"
+    }
+  }
+}

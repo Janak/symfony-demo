@@ -16,13 +16,27 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{Entity,Migrations,Tests}'
+        exclude: '../src/{Entity,Migrations,Tests,Service}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller'
-        tags: ['controller.service_arguments']
+   # App\Controller\:
+   #     resource: '../src/Controller'
+   #     tags: ['controller.service_arguments']
+
+    app.text_gen:
+        class: 'App\Service\TextGen'
+        public: false
+        autowire: true
+
+   # App\Controller\HomepageController:
+   #     arguments:
+   #         $messageGenerator: '@jm.message_generator'
+   #     public: false
+
+    #Jm\Bundle\MarketplaceBundle\Controller\:
+    #        resource: '../jm/marketplace-bundle/src/Controller'
+    #        tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

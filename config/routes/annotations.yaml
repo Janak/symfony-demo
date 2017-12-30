@@ -1,9 +1,8 @@
-platform_controllers:
-    resource: ../../platform/Controller/
+platform_controller:
+    resource: '@MarketplaceBundle/Controller/'
     type: annotation
 
 controllers:
     resource: ../../src/Controller/
     type: annotation
-
 

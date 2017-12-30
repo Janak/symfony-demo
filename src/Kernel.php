@@ -2,13 +2,15 @@
 
 namespace App;
 
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
-class Kernel extends BaseKernel
+class Kernel extends BaseKernel implements CompilerPassInterface
 {
     use MicroKernelTrait;
 
@@ -16,9 +18,15 @@ class Kernel extends BaseKernel
 
     public function getCacheDir()
     {
-        return $this->getProjectDir().'/var/cache/'.$this->environment;
+        return $this->getProjectDir() . '/var/cache/' . $this->environment;
     }
 
+    public function process(ContainerBuilder $container)
+    {
+        var_dump('asasa');
+       $definition = $container->findDefinition('jm.product.repo');
+       //$definition->setClass(ProductRepository::class);
+    }
     public function getLogDir()
     {
         return $this->getProjectDir().'/var/log';

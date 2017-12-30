@@ -2,26 +2,37 @@
 
 namespace App\Controller;
 
+use App\Service\TextGen;
+use Jm\Bundle\MarketplaceBundle\Service\MessageGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repository\ProductRepository;
+use Jm\Bundle\MarketplaceBundle\Controller\HomepageController as BaseHomepageController;
 
 class HomepageController extends Controller
 {
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function index(ProductRepository $products)
-    {
-        $products = $products->findBySomething('name');
+    /*public $messageGenerator;
 
-        if ($products)
-            // replace this line with your own code!
-            return $this->render('@Maker/demoPage.html.twig', [ 'path' => 'platform' ]);
-        else
-            return $this->render('@Maker/demoPage.html.twig', [ 'path' => 'Rajkot' ]);
+    public function __construct(MessageGeneratorInterface $messageGenerator)
+    {
+        $this->messageGenerator = $messageGenerator;
+    }
+    */
+
+    /**
+     * @Route("/1", name="client_homepage")
+     */
+    public function index1()
+    {
+        return $this->render('@Maker/demoPage.html.twig', [ 'path' => strtoupper('1') ]);
+        return $this->render('@Maker/demoPage.html.twig', [ 'path' => strtoupper($this->messageGenerator->getHappyMessage()) ]);
+
+        return rand(1, 10);
     }
 
+    protected function getRand()
+    {
+        return rand(1, 10);
+    }
 
 }

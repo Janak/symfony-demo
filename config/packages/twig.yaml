@@ -1,4 +1,8 @@
 twig:
-    paths: ['%kernel.project_dir%/templates']
+    paths:
+        '%kernel.project_dir%/templates/theme': theme
+        '%kernel.project_dir%/templates': theme
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+            - 'form/fields.html.twig'
