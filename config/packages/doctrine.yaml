@@ -18,6 +18,10 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        resolve_target_entities:
+            Jm\Bundle\MarketplaceBundle\Model\UserInterface: Jm\Bundle\MarketplaceBundle\Entity\User
+            Jm\Bundle\MarketplaceBundle\Entity\User: App\Entity\User
+            Jm\Bundle\MarketplaceBundle\Entity\Product: App\Entity\Product
         mappings:
             App:
                 is_bundle: false
